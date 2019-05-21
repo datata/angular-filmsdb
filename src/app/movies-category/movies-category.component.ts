@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
+import { ApiMoviesService } from '../api-movies.service';
 
 
 @Component({
@@ -11,8 +12,9 @@ export class MoviesCategoryComponent implements OnInit {
 
   category:string;
   validCategories=['top_rated','upcoming','popular'];
+  movies:[];
 
-  constructor(private route:ActivatedRoute, private router: Router) { }
+  constructor(private route:ActivatedRoute, private router: Router, private api:ApiMoviesService) { }
 
   ngOnInit() {
 
@@ -26,10 +28,15 @@ export class MoviesCategoryComponent implements OnInit {
     //this.category =this.route.snapshot.paramscategory;
 
     if(this.validCategories.includes(params.category)){
+      //get movies
+      this.api.getCategory(params.category).subscribe((response: any) => {
+        this.movies = response.results;
+        console.log(response);
+      })  
 
     }else{
+      //redirect to /movies/popular
       this.router.navigate(['/movies/popular'])
-
     }
   });
 

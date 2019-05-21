@@ -31,5 +31,17 @@ y lo añadimos en app.component.html
 
 9. vamos al componente movies category
 
+10. generamos servicio para la hacer la logica para pedir las peliculas de la api
+
+    ng g service ApiMovies
+
+
+    y añadir en app.module.ts
+
+    import { ApiMoviesService } from './api-movies.service';
+
+    providers: [ApiMoviesService],
+
+11. 
 
 

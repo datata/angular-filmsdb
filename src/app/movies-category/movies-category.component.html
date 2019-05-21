@@ -6,8 +6,15 @@
 
   </h1>
 
-  <div class='movies'>
+  <div class="movies">
 
 
-  </div>
-</section>
+      <div class="movie" *ngFor="let movie of movies">
+          <pre>{{movie | json}}</pre>
+      </div>
+  
+      <!-- <movies-display [filmsArray]="movies"></movies-display> -->
+  
+  
+    </div>
+  </section>
