@@ -29,5 +29,7 @@ y lo añadimos en app.component.html
 
 8. estilos en navigation y style.scss(global proyecto)
 
+9. vamos al componente movies category
+
 
 
