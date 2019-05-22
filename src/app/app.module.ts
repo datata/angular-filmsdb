@@ -9,13 +9,15 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { ApiMoviesService } from './api-movies.service';
 
 import { HttpClientModule } from '@angular/common/http';
+import { MoviesDisplayComponent } from './movies-display/movies-display.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MoviesCategoryComponent,
     MovieDetailComponent,
-    NavigationComponent
+    NavigationComponent,
+    MoviesDisplayComponent
   ],
   imports: [
     BrowserModule,

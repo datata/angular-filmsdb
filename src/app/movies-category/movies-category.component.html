@@ -5,16 +5,8 @@
     {{category | uppercase}} movies
 
   </h1>
-
-  <div class="movies">
-
-
-      <div class="movie" *ngFor="let movie of movies">
-          <pre>{{movie | json}}</pre>
-      </div>
   
-      <!-- <movies-display [filmsArray]="movies"></movies-display> -->
+    <app-movies-display [filmsArray]="movies"></app-movies-display>
+ 
   
-  
-    </div>
   </section>
