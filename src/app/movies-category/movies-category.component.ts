@@ -9,10 +9,11 @@ import { ApiMoviesService } from '../api-movies.service';
   styleUrls: ['./movies-category.component.scss']
 })
 export class MoviesCategoryComponent implements OnInit {
-
   category:string;
+  page=1;
   validCategories=['top_rated','upcoming','popular'];
-  movies:[];
+  movies:object[];
+  rawCategory:string;
 
   constructor(private route:ActivatedRoute, private router: Router, private api:ApiMoviesService) { }
 
@@ -20,6 +21,7 @@ export class MoviesCategoryComponent implements OnInit {
 
     //suscribe ejecuta la funcion cada vez q cambia el parametro
     this.route.params.subscribe(params =>{
+      this.rawCategory = params.category;
       this.category = params.category.replace('_','');
     //el replace es para quitar el _ de top_rated y no la muestre en el h1
 
@@ -40,6 +42,17 @@ export class MoviesCategoryComponent implements OnInit {
     }
   });
 
-  }
+}
+
+moreMovies(){
+  console.log('hola');
+  this.api.getCategory(this.rawCategory,this.page+1).subscribe((response:any)=>{
+    this.page++;
+    this.movies=[...this.movies, ...response.results];
+    
+    //si queremos que muestre 20 en otra pagina
+    //this.movies=[response.results];
+  });
+}
 
 }
