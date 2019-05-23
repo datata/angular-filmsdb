@@ -16,11 +16,14 @@ export class MoviesSearchComponent implements OnInit {
   ngOnInit() {  }
 
   search(){
-    console.log(this.query);
-    this.api.searchMovies(this.query).subscribe( (res:any) =>{  
-      console.log(res)
-      this.moviesFound=res.results;
-    })
+    console.log(this.query.trim());
+    if(this.query){
+      this.api.searchMovies(this.query).subscribe( (res:any) =>{          
+        this.moviesFound=res.results;
+      })
+    }else{
+      this.moviesFound = [];
+    }
   }
 
 }
