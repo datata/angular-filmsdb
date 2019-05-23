@@ -8,7 +8,7 @@ import { ApiMoviesService } from '../api-movies.service';
 })
 export class MoviesSearchComponent implements OnInit {
 
-  moviesFound:object[];
+  moviesFound:object[] = [];
   query=''
 
   constructor(private api:ApiMoviesService) { }
