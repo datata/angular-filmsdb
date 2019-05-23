@@ -1,7 +1,7 @@
 <div class="movies">
 
   <a class="movie" *ngFor="let film of filmsArray" routerLink="/movie/{{film.id}}"
-    [ngStyle]=" { 'film.backdrop_path && background-image': 'url(https://image.tmdb.org/t/p/w300' + film.backdrop_path + ')' } ">
+    [ngStyle]=" {'background-image':film.backdrop_path && 'url(https://image.tmdb.org/t/p/w300' + film.backdrop_path + ')' } ">
 
     <h1>{{film.title}}</h1>
     <span>{{film.release_date}}</span>
