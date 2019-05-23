@@ -11,6 +11,7 @@ import { ApiMoviesService } from './api-movies.service';
 import { HttpClientModule } from '@angular/common/http';
 import { MoviesDisplayComponent } from './movies-display/movies-display.component';
 import { MoviesSearchComponent } from './movies-search/movies-search.component';
+import { FormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { MoviesSearchComponent } from './movies-search/movies-search.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [ApiMoviesService],
   bootstrap: [AppComponent]
